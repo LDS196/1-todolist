@@ -11,7 +11,7 @@ type PropsType = {
     title: string
     tasks: Array<TaskType>
     removeTask: (taskId: number) => void
-    // changeFilter: (value: FilterValuesType) => void
+    returnAll: ()=> void
 }
 
 export function Todolist(props: PropsType) {
@@ -80,6 +80,7 @@ return (
             }}>
                 Completed
             </button>
+            <button onClick={()=>{props.returnAll()}}>returnAll</button>
         </div>
     </div>
 )
