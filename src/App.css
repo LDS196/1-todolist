@@ -1,4 +1,3 @@
-
 .App {
   padding: 30px;
   display: flex;
@@ -8,19 +7,24 @@
   margin-right: 50px;
 }
 
-.error {
-  border: red 1px solid;
+
+.isDone {
+  text-decoration: line-through;
 }
 
-.error-message {
-  color: red;
+.notIsDone {
+  font-weight: bold;
+}
+.activeFilter {
+  color: white;
+  font-weight: bold;
+  background-color: hotpink;
+  border: 2px solid hotpink;
+  border-radius: 3px;
+  outline-color: hotpink;
 }
 
-.active-filter {
-  background-color: aquamarine;
+.inputError {
+  border: 3px solid hotpink;
+  outline-color: hotpink;
 }
-
-.is-done {
-  opacity: 0.5;
-}
-
