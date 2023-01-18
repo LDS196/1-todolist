@@ -1,8 +1,13 @@
 import React, {ChangeEvent, FC, KeyboardEvent, useState} from 'react';
-type AddItemFormPropsType={
-addItem:(title:string)=>void
+import CancelPresentationIcon from "@mui/icons-material/CancelPresentation";
+import {Button, IconButton, TextField} from "@mui/material";
+import AddIcon from '@mui/icons-material/Add';
+
+
+type AddItemFormPropsType = {
+    addItem: (title: string) => void
 }
-export const AddItemForm:FC<AddItemFormPropsType> = (props) => {
+export const AddItemForm: FC<AddItemFormPropsType> = (props) => {
     const [title, setTitle] = useState<string>("")
     const [error, setError] = useState<boolean>(false)
 
@@ -13,7 +18,7 @@ export const AddItemForm:FC<AddItemFormPropsType> = (props) => {
 
     const onClickAddItemToTodoListHandler = () => {
         const trimmedTitle = title.trim()
-        if(trimmedTitle){
+        if (trimmedTitle) {
             props.addItem(trimmedTitle)
         } else {
             setError(true)
@@ -26,14 +31,24 @@ export const AddItemForm:FC<AddItemFormPropsType> = (props) => {
     const errorInputClasses = error ? "inputError" : undefined
     return (
         <div>
-            <input
+            <TextField
+                size={"small"}
+                variant="outlined"
+                label="Enter title"
                 value={title}
                 onChange={onChangeSetLocalTitleHandler}
                 onKeyDown={onKeyDownAddTaskToTodoListHandler}
-                className={errorInputClasses}
-            />
-            <button onClick={onClickAddItemToTodoListHandler}>+</button>
-            {errorMessage}
+                helperText={error && 'Please,enter title!'}
+                error={error}/>
+
+            <Button
+                    onClick={onClickAddItemToTodoListHandler}
+                    variant={"outlined"}
+                    size={"small"}
+                    color={'success'}
+                    endIcon={<AddIcon/>}>
+                ADD
+            </Button>
         </div>
     );
 };

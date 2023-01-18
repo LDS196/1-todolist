@@ -2,6 +2,8 @@ import React, {ChangeEvent, useState, KeyboardEvent} from 'react';
 import {FilterValuesType} from "./App";
 import {AddItemForm} from "./AddItemForm";
 import EditableSpan from "./EditableSpan";
+import {Button, ButtonGroup, Checkbox, IconButton} from "@mui/material";
+import CancelPresentationIcon from '@mui/icons-material/CancelPresentation';
 // title - заголовок
 // tasks - список задач
 
@@ -40,14 +42,17 @@ const TodoList = (props: TodoListPropsType) => {
             }
             return (
                 <li key={task.id}>
-                    <input
-                        type="checkbox"
+
+                    <Checkbox
                         checked={task.isDone}
                         onChange={onChangeSetTaskStatus}
-                    />
+                    size={"small"}/>
                     <EditableSpan title={task.title} classes={isDoneClasses} changeTitle={onChangeSetTaskTitle}/>
-                    {/*<span className={isDoneClasses}>{task.title}</span>*/}
-                    <button onClick={onClickRemoveTaskHandler}>x</button>
+                    <IconButton onClick={onClickRemoveTaskHandler}
+                    size={"small"}
+                    color={'secondary'}>
+                        <CancelPresentationIcon/>
+                    </IconButton>
                 </li>
             )
         })
@@ -65,24 +70,42 @@ const TodoList = (props: TodoListPropsType) => {
     return (
         <div>
             <h3><EditableSpan title={props.title} classes={''} changeTitle={changeTodolistTitle} /></h3>
-            <button onClick={onClickRemoveTodolistHandler}>x</button>
+            <IconButton onClick={onClickRemoveTodolistHandler}
+                        size={"small"}
+                        color={'secondary'}>
+                <CancelPresentationIcon/>
+            </IconButton>
             <AddItemForm addItem={addTask}/>
             <ul>
                 {tasksItems}
             </ul>
             <div>
-                <button
-                    className={props.filter === "all" ? "activeFilter" : undefined}
-                    onClick={getOnClickSetFilterHandler("all")}>All
-                </button>
-                <button
-                    className={props.filter === "active" ? "activeFilter" : undefined}
-                    onClick={getOnClickSetFilterHandler("active")}>Active
-                </button>
-                <button
-                    className={props.filter === "completed" ? "activeFilter" : undefined}
-                    onClick={getOnClickSetFilterHandler("completed")}>Completed
-                </button>
+                <ButtonGroup fullWidth>
+                    <Button
+                        sx={{mr: '3px'}}
+                        variant={props.filter === "all" ? "contained" : "outlined"}
+                        color={props.filter === "all" ? "primary" : "secondary"}
+                        size={"small"}
+                        disableElevation
+                        onClick={getOnClickSetFilterHandler("all")}>All
+                    </Button>
+                    <Button
+                        sx={{mr: '3px'}}
+                        variant={props.filter === "active" ? "contained" : "outlined"}
+                        color={"primary"}
+                        size={"small"}
+                        disableElevation
+                        onClick={getOnClickSetFilterHandler("active")}>Active
+                    </Button>
+                    <Button
+                        variant={props.filter === "completed" ? "contained" : "outlined"}
+                        color={"primary"}
+                        size={"small"}
+                        disableElevation
+                        onClick={getOnClickSetFilterHandler("completed")}>Completed
+                    </Button>
+                </ButtonGroup>
+
             </div>
         </div>
     );
