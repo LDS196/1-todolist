@@ -7,7 +7,7 @@ import CancelPresentationIcon from '@mui/icons-material/CancelPresentation';
 // title - заголовок
 // tasks - список задач
 
-type TodoListPropsType = {
+export type TodoListPropsType = {
     removeTodolist: (todolistId: string) => void
     todolistId: string
     title: string
@@ -42,7 +42,6 @@ const TodoList = (props: TodoListPropsType) => {
             }
             return (
                 <li key={task.id}>
-
                     <Checkbox
                         checked={task.isDone}
                         onChange={onChangeSetTaskStatus}
