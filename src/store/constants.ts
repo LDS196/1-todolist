@@ -1,4 +1,0 @@
-export const REMOVE_TODOLIST= 'REMOVE_TODOLIST' as const
-export const CHANGE_TODOLIST_FILTER= 'CHANGE_TODOLIST_FILTER' as const
-export const ADD_TODOLIST= 'ADD_TODOLIST' as const
-export const CHANGE_TODOLIST_TITLE= 'CHANGE_TODOLIST_TITLE' as const

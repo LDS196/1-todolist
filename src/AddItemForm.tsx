@@ -1,55 +1,49 @@
-import React, {ChangeEvent, FC, KeyboardEvent, useState} from 'react';
-import CancelPresentationIcon from "@mui/icons-material/CancelPresentation";
-import {Button, IconButton, TextField} from "@mui/material";
-import AddIcon from '@mui/icons-material/Add';
+import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
+import {IconButton, TextField} from "@mui/material";
+import {AddBox} from "@mui/icons-material";
+
 
 
 type AddItemFormPropsType = {
     addItem: (title: string) => void
 }
-export const AddItemForm: FC<AddItemFormPropsType> = (props) => {
-    const [title, setTitle] = useState<string>("")
-    const [error, setError] = useState<boolean>(false)
 
-    const onChangeSetLocalTitleHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        error && setError(false)
+export function AddItemForm(props: AddItemFormPropsType) {
+
+    let [title, setTitle] = useState("")
+    let [error, setError] = useState<string | null>(null)
+
+    const addItem = () => {
+        if (title.trim() !== "") {
+            props.addItem(title);
+            setTitle("");
+        } else {
+            setError("Title is required");
+        }
+    }
+
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setTitle(e.currentTarget.value)
     }
 
-    const onClickAddItemToTodoListHandler = () => {
-        const trimmedTitle = title.trim()
-        if (trimmedTitle) {
-            props.addItem(trimmedTitle)
-        } else {
-            setError(true)
+    const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
+        setError(null);
+        if (e.charCode === 13) {
+            addItem();
         }
-        setTitle("")
     }
-    const onKeyDownAddTaskToTodoListHandler = (e: KeyboardEvent<HTMLInputElement>) => e.key === "Enter" && onClickAddItemToTodoListHandler()
-    const errorMessageStyles = {color: "hotpink", marginTop: "0", marginBottom: "0"}
-    const errorMessage = error && <p style={errorMessageStyles}>Please, enter item title</p>
-    const errorInputClasses = error ? "inputError" : undefined
-    return (
-        <div>
-            <TextField
-                size={"small"}
-                variant="outlined"
-                label="Enter title"
-                value={title}
-                onChange={onChangeSetLocalTitleHandler}
-                onKeyDown={onKeyDownAddTaskToTodoListHandler}
-                helperText={error && 'Please,enter title!'}
-                error={error}/>
 
-            <Button
-                    onClick={onClickAddItemToTodoListHandler}
-                    variant={"outlined"}
-                    size={"small"}
-                    color={'success'}
-                    endIcon={<AddIcon/>}>
-                ADD
-            </Button>
-        </div>
-    );
-};
-
+    return <div>
+        <TextField variant="outlined"
+                   error={!!error}
+                   value={title}
+                   onChange={onChangeHandler}
+                   onKeyPress={onKeyPressHandler}
+                   label="Title"
+                   helperText={error}
+        />
+        <IconButton color="primary" onClick={addItem}>
+            <AddBox />
+        </IconButton>
+    </div>
+}

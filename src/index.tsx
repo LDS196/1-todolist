@@ -1,32 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import {lightBlue, pink} from "@mui/material/colors";
-import {CssBaseline} from "@mui/material";
+import * as serviceWorker from './serviceWorker';
+import { createRoot } from 'react-dom/client';
 
+const container  = document.getElementById('root') as HTMLElement
+const root = createRoot(container);
+root.render(<App />);
 
-const theme= createTheme({
-    palette:{
-        primary:pink,
-        secondary:lightBlue,
-        mode: 'dark'
-    }
-})
-
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-    <ThemeProvider theme={theme}>
-        <CssBaseline/>
-        <App />
-    </ThemeProvider>
-
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
 
