@@ -1,5 +1,5 @@
 import {removeTaskAC, tasksReducer} from './tasks-reducer'
-import { TasksStateType } from '../App'
+import { TasksStateType } from '../AppWithReducer'
 import {AddTodolistAC} from "./todolists-reducer";
 
 test('correct task should be deleted from correct array', () => {
