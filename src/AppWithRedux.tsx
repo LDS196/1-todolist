@@ -1,7 +1,6 @@
 import React, {useCallback,} from 'react';
 import './App.css';
 import {TaskType, Todolist} from './Todolist';
-import {v1} from 'uuid';
 import {AddItemForm} from './AddItemForm';
 import {
     addTodolistAC,
@@ -28,6 +27,7 @@ export type TasksStateType = {
 
 
 function AppWithRedux() {
+    console.log('AppWithRedux')
     const todolists = useSelector<AppRootStateType, Array<TodolistType>>(state => state.todolists)
     const tasks = useSelector<AppRootStateType, TasksStateType>(state => state.tasks)
     const dispatch = useDispatch();
