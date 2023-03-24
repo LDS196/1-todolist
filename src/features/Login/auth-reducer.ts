@@ -3,10 +3,11 @@ import {SetAppErrorActionType, setAppStatusAC, SetAppStatusActionType} from '../
 import {authAPI} from "../../api/todolists-api";
 import {handleServerAppError, handleServerNetworkError} from "../../utils/error-utils";
 import axios from "axios";
+import {clearTodosAC} from "../TodolistsList/todolists-reducer";
 
 const initialState = {
     isLoggedIn: false,
-    isInitialized:false
+    isInitialized: false
 }
 type InitialStateType = typeof initialState
 
@@ -39,7 +40,7 @@ export const loginTC = (data: any) => async (dispatch: Dispatch<ActionsType>) =>
     } catch (error) {
         if (axios.isAxiosError<{ message: string }>(error)) {
             const err = error.response ? error.response?.data : error
-            handleServerNetworkError( err,dispatch)
+            handleServerNetworkError(err, dispatch)
         }
     }
 }
@@ -55,7 +56,7 @@ export const meTC = () => async (dispatch: Dispatch<ActionsType>) => {
     } catch (error) {
         if (axios.isAxiosError<{ message: string }>(error)) {
             const err = error.response ? error.response?.data : error
-            handleServerNetworkError( err,dispatch)
+            handleServerNetworkError(err, dispatch)
         }
     } finally {
         dispatch(setIsInitializedAC(true))
@@ -68,6 +69,7 @@ export const logoutTC = () => (dispatch: Dispatch<ActionsType>) => {
             if (res.data.resultCode === 0) {
                 dispatch(setIsLoggedInAC(false))
                 dispatch(setAppStatusAC('succeeded'))
+                dispatch(clearTodosAC())
             } else {
                 handleServerAppError(res.data, dispatch)
             }
@@ -79,4 +81,7 @@ export const logoutTC = () => (dispatch: Dispatch<ActionsType>) => {
 
 
 // types
-type ActionsType = ReturnType<typeof setIsLoggedInAC> | SetAppStatusActionType | SetAppErrorActionType |ReturnType<typeof setIsInitializedAC>
+type ActionsType = ReturnType<typeof setIsLoggedInAC>
+    | SetAppStatusActionType | SetAppErrorActionType
+    | ReturnType<typeof setIsInitializedAC>
+    | ReturnType<typeof clearTodosAC>
