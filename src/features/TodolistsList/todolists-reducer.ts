@@ -63,14 +63,11 @@ export const fetchTodolistsTC = () => {
 }
 export const removeTodolistTC = (todolistId: string) => {
     return (dispatch: AppThunkDispatch) => {
-        //изменим глобальный статус приложения, чтобы вверху полоса побежала
         dispatch(setAppStatusAC('loading'))
-        //изменим статус конкретного тудулиста, чтобы он мог задизеблить что надо
         dispatch(changeTodolistEntityStatusAC(todolistId, 'loading'))
         todolistsAPI.deleteTodolist(todolistId)
             .then((res) => {
                 dispatch(removeTodolistAC(todolistId))
-                //скажем глобально приложению, что асинхронная операция завершена
                 dispatch(setAppStatusAC('succeeded'))
             })
     }

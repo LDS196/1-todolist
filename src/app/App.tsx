@@ -43,7 +43,7 @@ const logout = ()=>{
         <div className="App">
             <ErrorSnackbar/>
             <AppBar position="static">
-                <Toolbar>
+                <Toolbar style={{display:'flex', justifyContent:'space-between'}}>
                     <IconButton edge="start" color="inherit" aria-label="menu">
                         <Menu/>
                     </IconButton>
