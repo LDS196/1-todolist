@@ -21,5 +21,5 @@ Deploy project:
 ```
 yarn deploy
 ```
-![Static Badge](https://img.shields.io/badge/qqq?logo=%2361DAFB)
+![QQQQ](https://img.shields.io/badge/-React-61daf8?logo=react&logoColor=black)
 
