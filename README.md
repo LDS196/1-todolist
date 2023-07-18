@@ -8,6 +8,7 @@
 ![REDUX](https://img.shields.io/badge/-Redux-yellow)
 ![TypeScript](https://img.shields.io/badge/-TypeScript-blue)
 ![ReactHookForm](https://img.shields.io/badge/-ReactHookForm-pink)
+![Storybook](https://img.shields.io/badge/-Storybook-red)
 ![Jest](https://img.shields.io/badge/-Jest-green)
 ![MaterialUI](https://img.shields.io/badge/-MaterialUI-blue)
 ![HTML5](https://img.shields.io/badge/-HTML5-e34f26?logo=html5&logoColor=white)
