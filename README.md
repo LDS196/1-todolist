@@ -1,7 +1,6 @@
 :seedling: <a href="https://lds196.github.io/1-todolist/" target="_blank">Task Manager</a>
 ---
 приложение позволяет пользователям создавать список задач, устанавливать для них приоритеты, редактировать и удалять их, отмечать выполненные задачи.
-[![todo.jpg](https://i.postimg.cc/wTN5JFQb/todo.jpg)](https://postimg.cc/XpVy6fhw)
 
 ## Технологии
 ![React](https://img.shields.io/badge/-React-61daf8?logo=react&logoColor=black)
@@ -38,3 +37,4 @@ Deploy project:
 ```
 yarn deploy
 ```
+[![todo.jpg](https://i.postimg.cc/wTN5JFQb/todo.jpg)](https://postimg.cc/XpVy6fhw)
