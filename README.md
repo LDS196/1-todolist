@@ -18,6 +18,6 @@ Start project:
 yarn start
 ```
 Deploy project:
-```
 yarn deploy
+```
 
