@@ -15,8 +15,11 @@
 ![CSS3](https://img.shields.io/badge/-CSS3-1572b6?logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/-JavaScript-f7df1e?logo=javaScript&logoColor=black)
 ![Webpack](https://img.shields.io/badge/-Webpack-99d6f8?logo=webpack&logoColor=black)
-![API](https://img.shields.io/badge/-API-yellow)
-
+![API](https://img.shields.io/badge/-Api-yellow)
+![Ant-Design](https://img.shields.io/badge/-Ant-Design-red)
+![Axios](https://img.shields.io/badge/-Axios-yellow)
+![Formik](https://img.shields.io/badge/-Formik-pink)
+![Figma](https://img.shields.io/badge/-Figma-yellow)
 
 Clone repositories:
 ```
