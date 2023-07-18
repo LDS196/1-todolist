@@ -21,6 +21,7 @@ Deploy project:
 ```
 yarn deploy
 ```
-![Static Badge](https://img.shields.io/badge/:badgeContent)
+![Static Badge](https://img.shields.io/badge/www)
+
 
 https://img.shields.io/badge/:badgeContent
