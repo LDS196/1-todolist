@@ -21,5 +21,5 @@ Deploy project:
 ```
 yarn deploy
 ```
-![QQQQ](https://img.shields.io/badge/-React-61daf8?logo=react&logoColor=black)
+![](https://img.shields.io/badge/-Rsssss-61daf8?logo=react&logoColor=black)
 
