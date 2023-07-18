@@ -21,7 +21,5 @@ Deploy project:
 ```
 yarn deploy
 ```
-![Static Badge](https://img.shields.io/badge/www)
+![Static Badge](https://img.shields.io/badge/qqq?logo=%2361DAFB)
 
-
-https://img.shields.io/badge/:badgeContent
