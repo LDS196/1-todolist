@@ -24,7 +24,7 @@
 
 Clone repositories:
 ```
-git@github.com:LDS196/1-todolist.git](https://github.com/LDS196/1-todolist.git
+git clone https://github.com/LDS196/1-todolist.git
 ```
 Install dependencies:
 ```
