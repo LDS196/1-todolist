@@ -8,7 +8,7 @@ Stack:React,TypeScript, Redux, RestApi, React Hooks, Axios, Mui, Formik, Jest, S
 Clone repositories:
 ```
 git@github.com:LDS196/1-todolist.git
-
+```
 Install dependencies:
 ```
 yarn install
@@ -16,9 +16,8 @@ yarn install
 Start project: 
 ```
 yarn start
-
+```
 Deploy project:
-
 ```
 yarn deploy
-
+```
